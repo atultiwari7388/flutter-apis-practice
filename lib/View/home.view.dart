@@ -20,6 +20,7 @@ class _HomeViewState extends State<HomeView> {
         await http.get(Uri.parse("https://jsonplaceholder.typicode.com/posts"));
     var data = jsonDecode(response.body.toString());
     if (response.statusCode == 200) {
+      postData.clear();
       for (Map i in data) {
         postData.add(PostsModel.fromJson(i));
       }
@@ -44,7 +45,9 @@ class _HomeViewState extends State<HomeView> {
               future: getPostData(),
               builder: (context, snapshot) {
                 if (!snapshot.hasData) {
-                  return const CircularProgressIndicator();
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
                 } else {
                   return ListView.builder(
                     itemCount: postData.length,

@@ -1,4 +1,4 @@
-import 'package:apisflutter/View/example_five.view.dart';
+import 'package:apisflutter/View/auth/signup.auth.view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ExampleFive(),
+      home: const SignupView(),
     );
   }
 }
